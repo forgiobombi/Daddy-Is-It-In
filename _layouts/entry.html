@@ -1,0 +1,48 @@
+---
+layout: default
+---
+<article class="entry">
+  <header>
+    <h1>{{ page.title }}</h1>
+    <p class="meta-line">
+      {% if page.aliases %}Aliases: {{ page.aliases | join: ", " }} · {% endif %}
+      {% if page.era %}Era: {{ page.era }} · {% endif %}
+      {% if page.city %}City: {{ page.city }}{% endif %}
+    </p>
+  </header>
+
+  {{ content }}
+
+  {% if page.quotes %}
+  <section>
+    <h2>Quotes / Interviews</h2>
+    <ul>
+      {% for q in page.quotes %}
+      <li>“{{ q }}”</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if page.related_people %}
+  <section>
+    <h2>Related People</h2>
+    <ul>
+      {% for p in page.related_people %}
+      <li><a href="{{ '/people/' | append: p | append: '/' | relative_url }}">{{ p | replace: '-', ' ' | capitalize }}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if page.references %}
+  <section>
+    <h2>References / Sources</h2>
+    <ol>
+      {% for ref in page.references %}
+      <li><a href="{{ ref.url }}">{{ ref.title }}</a></li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+</article>

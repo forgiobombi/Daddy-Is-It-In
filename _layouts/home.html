@@ -1,0 +1,26 @@
+---
+layout: default
+---
+<section class="hero">
+  <h1>{{ page.title }}</h1>
+  <p>
+    A cinematic, dark-mode archival encyclopedia with biographies, timelines, source-backed narratives,
+    places, media collections, and era-based cultural context.
+  </p>
+</section>
+
+<section class="collection-grid" aria-label="Collections">
+  {% assign ordered_collections = "people,stories,locations,events,galleries,eras,timeline,media" | split: "," %}
+  {% for collection_name in ordered_collections %}
+    {% assign entries = site[collection_name] | sort: "title" %}
+    <article class="card-glow">
+      <h2><a href="/{{ collection_name }}/">{{ collection_name | capitalize }}</a></h2>
+      <p>{{ entries.size }} records</p>
+      <ul>
+        {% for item in entries limit:3 %}
+          <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </article>
+  {% endfor %}
+</section>

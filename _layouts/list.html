@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<header class="section-header">
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.description }}</p>
+</header>
+<ul class="entry-list">
+  {% assign entries = site[page.collection_key] | sort: "title" %}
+  {% for entry in entries %}
+    <li class="entry-item">
+      <a href="{{ entry.url | relative_url }}">{{ entry.title }}</a>
+      {% if entry.era %}<span class="meta-chip">{{ entry.era }}</span>{% endif %}
+      {% if entry.city %}<span class="meta-chip">{{ entry.city }}</span>{% endif %}
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,11 @@
+<div class="brand-wrap">
+  {% if site.data.brand.logo_svg %}
+    <img class="brand-logo" src="{{ site.data.brand.logo_svg | relative_url }}" alt="{{ site.title }} logo" />
+  {% else %}
+    <img class="brand-logo" src="{{ '/assets/images/logo-placeholder.svg' | relative_url }}" alt="{{ site.title }} logo" />
+  {% endif %}
+  <div>
+    <p class="brand-kicker">Underground Historical Archive</p>
+    <strong class="brand-title">{{ site.title }}</strong>
+  </div>
+</div>

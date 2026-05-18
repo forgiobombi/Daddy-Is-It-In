@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<h1>{{ page.title }}</h1>
+<p>Search across all collections.</p>
+<label for="searchInput">Query</label>
+<input id="searchInput" type="search" placeholder="Search people, stories, locations..." />
+<ul id="searchResults" class="entry-list" aria-live="polite"></ul>
+<script>
+  const docs = [
+    {% assign searchable = site.documents | where_exp: "d", "d.collection != 'posts'" %}
+    {% for d in searchable %}
+      {
+        title: {{ d.title | jsonify }},
+        url: {{ d.url | relative_url | jsonify }},
+        collection: {{ d.collection | jsonify }},
+        text: {{ d.content | markdownify | strip_html | normalize_whitespace | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+<script src="{{ '/assets/js/search.js' | relative_url }}"></script>

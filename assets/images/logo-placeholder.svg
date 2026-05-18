@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="Archive logo placeholder">
+  <rect width="200" height="200" rx="24" fill="#111111"/>
+  <path d="M36 36h128v128H36z" fill="none" stroke="#c1121f" stroke-width="6"/>
+  <path d="M52 130V72h32q18 0 28 10 10 10 10 23 0 13-10 22-10 9-28 9z" fill="none" stroke="#ff2e2e" stroke-width="8"/>
+  <circle cx="134" cy="134" r="18" fill="none" stroke="#7a0000" stroke-width="6"/>
+</svg>
